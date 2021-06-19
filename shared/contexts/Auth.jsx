@@ -4,14 +4,14 @@ import Cookies from "universal-cookie";
 const AuthContext = createContext({
   isSigned: false,
   signInUrl: "/api/auth/login",
-  data: null,
+  data: {},
 });
 
 export const useAuth = () => useContext(AuthContext);
 
 const AuthProvider = ({ children }) => {
   const signInUrl = "/api/auth/login";
-  const [data, setData] = useState(null);
+  const [data, setData] = useState({});
 
   useEffect(() => {
     const cookies = new Cookies();

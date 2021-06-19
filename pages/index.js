@@ -32,6 +32,10 @@ export default function Home() {
               <span style={{ paddingRight: "1em" }}>
                 username: {data.username}
               </span>
+              <Link href="/my-list">
+                <a>My List</a>
+              </Link>
+              {" | "}
               <Link href="/api/auth/logout">
                 <a>Logout</a>
               </Link>
