@@ -1,10 +1,12 @@
 import Head from "next/head";
 import Image from "next/image";
 import styles from "../styles/Home.module.css";
-import { Counter } from "../features/counter/Counter.js";
 import Link from "next/link";
+import { useAuth } from "../shared/contexts/Auth";
 
 export default function Home() {
+  const { data, isSigned } = useAuth();
+
   return (
     <div className={styles.container}>
       <Head>
@@ -14,17 +16,32 @@ export default function Home() {
       </Head>
 
       <main className={styles.main}>
-        <Counter />
-
         <h1 className={styles.title}>
           Welcome to <a href="https://nextjs.org">Next.js!</a>
         </h1>
 
-        <p>
-          <Link href="/api/auth/login">
-            <a>Login</a>
-          </Link>
-        </p>
+        <div
+          style={{
+            border: "1px solid black",
+            padding: "1em",
+            margin: "1em 0",
+          }}
+        >
+          {isSigned ? (
+            <>
+              <span style={{ paddingRight: "1em" }}>
+                username: {data.username}
+              </span>
+              <Link href="/api/auth/logout">
+                <a>Logout</a>
+              </Link>
+            </>
+          ) : (
+            <Link href="/api/auth/login">
+              <a>Login</a>
+            </Link>
+          )}
+        </div>
 
         <p className={styles.description}>
           Get started by editing{" "}

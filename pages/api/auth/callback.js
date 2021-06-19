@@ -1,3 +1,4 @@
+import { serialize } from "cookie";
 import { consumerKey, accessTokenUrl } from "../../../config";
 import QueryString from "qs";
 import axios from "axios";
@@ -19,8 +20,20 @@ export default async (req, res) => {
   );
 
   res.setHeader("Set-Cookie", [
-    `access_token=${access_token}; path=/; SameSite=Lax`,
-    `username=${username}; path=/; SameSite=Lax`,
+    serialize("access_token", access_token, {
+      path: "/",
+      SameSite: "Lax",
+    }),
+    serialize("username", username, {
+      path: "/",
+      SameSite: "Lax",
+    }),
+    serialize(id, "", {
+      maxAge: -1,
+      path: "/",
+    }),
+    // `access_token=${access_token}; path=/; SameSite=Lax`,
+    // `username=${username}; path=/; SameSite=Lax`,
   ]);
 
   res.redirect("/");
