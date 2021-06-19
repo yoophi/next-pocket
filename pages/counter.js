@@ -1,13 +1,9 @@
 import Head from "next/head";
 import Image from "next/image";
-import styles from "../styles/Home.module.css";
 import { Counter } from "../features/counter/Counter.js";
-import Link from "next/link";
-import { useAuth } from "../shared/contexts/Auth";
+import styles from "../styles/Home.module.css";
 
 export default function Home() {
-  const { data, isSigned } = useAuth();
-
   return (
     <div className={styles.container}>
       <Head>
