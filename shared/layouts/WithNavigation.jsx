@@ -303,6 +303,7 @@ const MobileNavItem = ({ label, children, href }) => {
 const NAV_ITEMS = [
   {
     label: "Home",
+    href: "/",
     children: [
       {
         label: "Home Page",
@@ -314,6 +315,7 @@ const NAV_ITEMS = [
   },
   {
     label: "My Articles",
+    href: "/my-list",
     children: [
       {
         label: "Pocket Articles List",
