@@ -321,9 +321,9 @@ const NAV_ITEMS = [
         href: "/my-list",
       },
       {
-        label: "Freelance Projects",
+        label: "Pocket Articles List (with Redux)",
         subLabel: "An exclusive list for contract work",
-        href: "/my-list",
+        href: "/articles-redux",
       },
     ],
   },
