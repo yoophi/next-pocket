@@ -24,7 +24,7 @@ const AuthProvider = ({ children }) => {
   return (
     <AuthContext.Provider
       value={{
-        isSigned: !!data,
+        isSigned: !!data?.username,
         signInUrl,
         data,
       }}

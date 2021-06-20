@@ -8,9 +8,14 @@
     "start": "next start"
   },
   "dependencies": {
+    "@chakra-ui/icons": "^1.0.13",
+    "@chakra-ui/react": "^1.6.4",
+    "@emotion/react": "^11.4.0",
+    "@emotion/styled": "^11.3.0",
     "@reduxjs/toolkit": "^1.6.0",
     "axios": "^0.21.1",
     "cookie": "^0.4.1",
+    "framer-motion": "^4.1.17",
     "nanoid": "^3.1.23",
     "next": "11.0.0",
     "next-redux-wrapper": "^7.0.2",
