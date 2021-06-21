@@ -15,7 +15,6 @@ const fetchRequestToken = async (consumerKey, redirectUri) => {
     redirect_uri: redirectUri,
   };
   const response = await axios.post(requestTokenUrl, params);
-  console.log({ "response.data": response.data });
   return QueryString.parse(response.data).code;
 };
 

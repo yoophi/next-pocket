@@ -3,18 +3,8 @@ import { consumerKey } from "../../../config";
 import axios from "axios";
 
 export default async (req, res) => {
-  console.log({ req });
   const targetUrl = `https://${req.query.path.join("/")}`;
   const { method, body, query, headers, cookies } = req;
-  console.log({
-    targetUrl,
-    method,
-    body,
-    query,
-    headers,
-    cookies,
-  });
-
   const { access_token } = cookies;
 
   if (method === "POST") {
