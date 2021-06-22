@@ -1,0 +1,7 @@
+node_modules/
+.next/
+public/
+styles/
+.eslintrc.js
+.prettierrc.js
+next-env.d.ts

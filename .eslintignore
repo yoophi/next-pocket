@@ -1,0 +1,9 @@
+node_modules/
+.next/
+public/
+styles/
+.eslintrc.js
+.prettierrc.js
+postcss.config.js
+tailwind.config.js
+next-env.d.ts
