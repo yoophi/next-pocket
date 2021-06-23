@@ -24,6 +24,7 @@
     "@reduxjs/toolkit": "^1.6.0",
     "axios": "^0.21.1",
     "cookie": "^0.4.1",
+    "crypto-js": "^4.0.0",
     "framer-motion": "^4.1.17",
     "nanoid": "^3.1.23",
     "next": "11.0.0",
