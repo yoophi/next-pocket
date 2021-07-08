@@ -1,6 +1,6 @@
-import React from 'react'
+import React from "react";
 
-import { Box, Flex } from '@chakra-ui/react'
+import { Box, Flex } from "@chakra-ui/react";
 
 export const Sample = () => {
   return (
@@ -18,12 +18,12 @@ export const Sample = () => {
         Hello, world
       </Box>
     </Flex>
-  )
-}
+  );
+};
 
 export default {
-  title: 'ChakraUI/Sample',
+  title: "ChakraUI/Sample",
   component: Sample,
-}
+};
 
-const Template = args => <Sample {...args} />
+const Template = (args) => <Sample {...args} />;

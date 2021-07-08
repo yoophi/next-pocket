@@ -1,16 +1,16 @@
-import { serialize } from 'cookie'
+import { serialize } from "cookie";
 
 export default async (req, res) => {
-  res.setHeader('Set-Cookie', [
-    serialize('username', '', {
+  res.setHeader("Set-Cookie", [
+    serialize("username", "", {
       maxAge: -1,
-      path: '/',
+      path: "/",
     }),
-    serialize('access_token', '', {
+    serialize("access_token", "", {
       maxAge: -1,
-      path: '/',
+      path: "/",
     }),
-  ])
+  ]);
 
-  res.redirect('/')
-}
+  res.redirect("/");
+};
