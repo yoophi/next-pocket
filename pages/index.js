@@ -1,13 +1,9 @@
 import Head from 'next/head'
 import Image from 'next/image'
-import Link from 'next/link'
-import { useAuth } from '../shared/contexts/Auth'
 import WithNavigation from '../shared/layouts/WithNavigation'
 import styles from '../styles/Home.module.css'
 
 export default function Home() {
-  const { data, isSigned } = useAuth()
-
   return (
     <WithNavigation>
       <div className={styles.container}>
@@ -21,30 +17,6 @@ export default function Home() {
           <h1 className={styles.title}>
             Welcome to <a href="https://nextjs.org">Next.js!</a>
           </h1>
-
-          <div
-            style={{
-              border: '1px solid black',
-              padding: '1em',
-              margin: '1em 0',
-            }}>
-            {isSigned ? (
-              <>
-                <span style={{ paddingRight: '1em' }}>username: {data.username}</span>
-                <Link href="/my-list">
-                  <a>My List</a>
-                </Link>
-                {' | '}
-                <Link href="/api/auth/logout">
-                  <a>Logout</a>
-                </Link>
-              </>
-            ) : (
-              <Link href="/api/auth/login">
-                <a>Login</a>
-              </Link>
-            )}
-          </div>
 
           <p className={styles.description}>
             Get started by editing <code className={styles.code}>pages/index.js</code>
