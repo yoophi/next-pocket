@@ -1,6 +1,4 @@
 import { ChevronDownIcon, ChevronRightIcon, CloseIcon, HamburgerIcon } from '@chakra-ui/icons'
-import NextLink from 'next/link'
-
 import {
   Box,
   Button,
@@ -19,6 +17,7 @@ import {
   useColorModeValue,
   useDisclosure,
 } from '@chakra-ui/react'
+import NextLink from 'next/link'
 import { useAuth } from '../contexts/Auth'
 
 export default function WithNavigation({ children }) {
@@ -52,12 +51,16 @@ export default function WithNavigation({ children }) {
                 />
               </Flex>
               <Flex flex={{ base: 1 }} justify={{ base: 'center', md: 'start' }}>
-                <Text
-                  textAlign={useBreakpointValue({ base: 'center', md: 'left' })}
-                  fontFamily={'heading'}
-                  color={useColorModeValue('gray.800', 'white')}>
-                  Next-Pocket
-                </Text>
+                <NextLink href="/">
+                  <a>
+                    <Text
+                      textAlign={useBreakpointValue({ base: 'center', md: 'left' })}
+                      fontFamily={'heading'}
+                      color={useColorModeValue('gray.800', 'white')}>
+                      Next-Pocket
+                    </Text>
+                  </a>
+                </NextLink>
 
                 <Flex display={{ base: 'none', md: 'flex' }} ml={10}>
                   <DesktopNav />
@@ -70,6 +73,24 @@ export default function WithNavigation({ children }) {
                     <Text fontSize="lg" pr="4">
                       {data.username}
                     </Text>
+                    <NextLink href={'/api/auth/logout'}>
+                      <Button
+                        display={{ base: 'none', md: 'inline-flex' }}
+                        fontSize={'sm'}
+                        fontWeight={600}
+                        variant={'link'}
+                        bg={'pink.400'}
+                        color={'white'}
+                        p="2"
+                        _hover={{
+                          bg: 'pink.300',
+                        }}>
+                        Sign Out
+                      </Button>
+                    </NextLink>
+                  </Flex>
+                ) : (
+                  <NextLink href={'/api/auth/login'}>
                     <Button
                       display={{ base: 'none', md: 'inline-flex' }}
                       fontSize={'sm'}
@@ -80,26 +101,10 @@ export default function WithNavigation({ children }) {
                       p="2"
                       _hover={{
                         bg: 'pink.300',
-                      }}
-                      href={'/api/auth/logout'}>
-                      Sign Out
+                      }}>
+                      Sign In
                     </Button>
-                  </Flex>
-                ) : (
-                  <Button
-                    display={{ base: 'none', md: 'inline-flex' }}
-                    fontSize={'sm'}
-                    fontWeight={600}
-                    variant={'link'}
-                    bg={'pink.400'}
-                    color={'white'}
-                    p="2"
-                    _hover={{
-                      bg: 'pink.300',
-                    }}
-                    href={'/api/auth/login'}>
-                    Sign In
-                  </Button>
+                  </NextLink>
                 )}
               </Stack>
             </Flex>
